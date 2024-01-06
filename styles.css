@@ -1,0 +1,65 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa; 
+    color: #333; 
+    margin: 0;
+}
+
+.dropdown {
+    margin: 10px;
+}
+
+.dropdown-menu {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#table i {
+    font-size: 3em; 
+    color: #007bff;
+    margin-right: 10px;
+    align-items: center; 
+}
+#table {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.tablinks {
+    background-color: #007bff; 
+    color: #fff;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 2px;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.tablinks:hover {
+    background-color: #0056b3;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+h2 {
+    color: #333;
+}
+
+.last-price {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
