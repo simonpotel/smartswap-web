@@ -91,7 +91,7 @@ class databaseSQL(object):
             cursor.close()
 
 def initDatabase():
-    db_config = GetJSONConfig("db_config.json")  # Get db_config.json of logs in a {}
+    db_config = get_json_content("db_config.json")  # Get db_config.json of logs in a {}
     if db_config == -1:
         with open("db_config.json", 'w') as f:
             json.dump({'host': 'localhost', 'user': 'user', 'pass': 'pass', 'database': 'smartswap'}, f, indent=2)
@@ -102,13 +102,27 @@ def initDatabase():
 
 def getConfig():
     config_file = "pairs_data_config.json"
-    config = GetJSONConfig(config_file)  
+    config = get_json_content(config_file)
+    
     if config == -1:
-        with open(config_file, 'w') as f:
-            json.dump([{'pair_name': 'qs_matic_usdt', 'table_name': 'qs_matic_usdt', 'router': 'qs', 'tokenIn_decimal': 18, 'path': '["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270", "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"]',"tokenOut_decimal": 6, "max_entries": 21600}], f, indent=2)
-            print(f"Config file {config_file} has been created.")
-            exit()
+        default_config = [
+            {
+                "pair_name": "qs_matic_usdt",
+                "table_name": "qs_matic_usdt",
+                "router": "qs",
+                "tokenIn_decimal": 18,
+                "path": ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270", "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
+                "tokenOut_decimal": 6,
+                "max_entries": 21600
+            }
+        ]
+
+        write_json(config_file, default_config)
+        print(f"Config file {config_file} has been created.")
+        exit()
+
     return config
+
 
 def initTable(db, configarray):
     """
