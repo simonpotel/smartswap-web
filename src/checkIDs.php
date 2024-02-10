@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $sql = "select * from smartswap where username=:username and password=:password";
+    $sql = "select * from smartswap.clients where username=:username and password=:password";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $password);
