@@ -2,8 +2,8 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $input_username = $_POST["username"];
+    $input_password = $_POST["password"];
 
     $config_json = file_get_contents('../db_config.json');
     $config_array = json_decode($config_json, true);
@@ -14,30 +14,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $servername = $config_array['host'];
-    $username = $config_array['user'];
-    $password = $config_array['pass'];
+    $db_username = $config_array['user'];
+    $db_password = $config_array['pass'];
     $dbname = $config_array['database'];
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $db_username, $db_password, $dbname);
 
     if ($conn->connect_error) {
-        header("Location: ../etc/errorPage.html"); /* Connection to database failed */
+        header("Location: ../etc/errorPage.html");
         exit();
     }
 
-    $sql = "select * from smartswap.clients where username=:username and password=:password";
+    $sql = "SELECT * FROM smartswap.clients WHERE user = ? AND password = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
-	$stmt->execute();
-	$res= $stmt->fetchAll();
     
-
-    if (count($res) > 0) {
+    if (!$stmt) {
+        header("Location: ../etc/errorPage.html"); /* Connection to database failed */
+        exit();
+    }
+    
+    $stmt->bind_param('ss', $input_username, $input_password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
         echo "Identification ok";
     } else {
         header("Location: ../etc/errorPage.html"); /* Connection refused */
         exit();
     }
+    
 } else {
 
     header("Location: index.html");
