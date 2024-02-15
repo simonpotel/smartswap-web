@@ -1,15 +1,15 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    /*
     $input_username = $_POST["username"];
     $input_password = $_POST["password"];
 
     $config_json = file_get_contents('../db_config.json');
     $config_array = json_decode($config_json, true);
 
-    if ($config_array === null) {
-        header("Location: ../etc/errorPage.html"); /* Error reading json */
+    if ($config_array === null) { 
+        header("Location: ../etc/errorPage.html"); // Error reading json
         exit();
     }
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($sql);
     
     if (!$stmt) {
-        header("Location: ../etc/errorPage.html"); /* Connection to database failed */
+        header("Location: ../etc/errorPage.html"); // Connection to database failed 
         exit();
     }
     
@@ -37,12 +37,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
     
     if ($result->num_rows > 0) {
-        echo "Identification ok";
+        header("Location: ../etc/testPage.html");
+        exit();
     } else {
-        header("Location: ../etc/errorPage.html"); /* Connection refused */
+        header("Location: ../etc/errorPage.html"); // Connection refused 
         exit();
     }
-    
+*/
+header("Location: ../etc/testPage.html");
+exit();
 } else {
 
     header("Location: index.html");
