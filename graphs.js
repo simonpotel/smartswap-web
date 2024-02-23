@@ -1,6 +1,6 @@
 async function getTableNames() {
     try {
-        const response = await fetch('data.php');
+        const response = await fetch('../src/data.php');
         const data = await response.json();
         return data.tables;
     } catch (error) {
@@ -53,7 +53,7 @@ async function createTabsAndCharts() {
 
 async function fetchDataAndCreateChart(tableName) {
     try {
-        const response = await fetch(`data.php?table=${tableName}`);
+        const response = await fetch(`../src/data.php?table=${tableName}`);
         if (!response.ok) {
             throw new Error(`Error fetching data for table ${tableName}`);
         }
