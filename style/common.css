@@ -112,3 +112,22 @@ nav ul li:hover .dropdown {
         margin: 10px 0; 
     }
 }
+
+/* dont display the navbar if we are on smartphone */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        display: none; 
+    }
+    .logo-main {
+        display: block; 
+        text-align: center; 
+        margin-bottom: 20px; 
+    }
+    .logo-main img {
+        width: 50px; 
+        height: auto; 
+        cursor: pointer; 
+    }
+}
+
+

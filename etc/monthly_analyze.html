@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smartswap - monthly_analyze</title>
-    <link rel="stylesheet" type="text/css" href="../style/styles.css">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
     <link rel="stylesheet" type="text/css" href="../style/monthly_analyze.css">
     <link rel="icon" href="../files/logo.jpeg" type="image/x-icon">
 </head>
@@ -21,7 +21,7 @@
                         <li><a href="../etc/monthly_analyze.html">Monthly Analyze</a></li>
                     </ul>
                 </li>
-                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="../etc/loginPage.html">Login</a></li>
             </ul>
         </nav>
@@ -35,21 +35,21 @@
         </select>
     </div>
     
-    <div id="main">
-        <div class="table-container rounded">
-            <div id="positions" class="table-content">
-                <h2>Positions</h2>
-                <!-- content of positions updated by JS code -->
-            </div>
-            <div id="trades" class="table-content">
-                <h2>Trades</h2>
-                <!-- content of trades updated by JS code -->
-            </div>
-        </div>
-        <canvas id="monthlyChart" width="800" height="400"></canvas>
-    </div>
+    <canvas id="monthlyChart"></canvas>
 
+    <div class="table-container rounded">
+        <div id="positions" class="table-content">
+            <h2>Positions</h2>
+            <!-- content of positions updated by JS code -->
+        </div>
+        <div id="trades" class="table-content">
+            <h2>Trades</h2>
+            <!-- content of trades updated by JS code -->
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../scripts/monthly_analyze.js"></script>
+    <script src="../scripts/common.js"></script>
 </body>
 </html>
