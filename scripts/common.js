@@ -4,10 +4,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelector('nav ul');
 
     logo.addEventListener('click', function () {
-        if (navLinks.style.display === 'block') {
-            navLinks.style.display = 'none';
+        if (window.innerWidth <= 768) {
+            if (navLinks.style.display === 'block') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'block';
+            }
         } else {
-            navLinks.style.display = 'block';
+            window.location.href = '../index.html'; // redirect to home page
         }
     });
 });
+
+
+
+
