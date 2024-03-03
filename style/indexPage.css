@@ -1,0 +1,33 @@
+/* title */
+#main-content h1 {
+    font-size: 36px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+/* description */
+#main-content p {
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* button */
+#main-content button {
+    display: block;
+    margin-top: 20px; 
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #8a2be2; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* button hover */
+#main-content button:hover {
+    background-color: #9400d3; 
+}
+

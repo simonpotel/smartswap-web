@@ -1,65 +1,79 @@
+/* page content */
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #f8f9fa; 
-    color: #333; 
-    margin: 0;
+    background-color: black; 
+    color: white; 
+    font-size: 20px; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Police macOS */
 }
 
-.dropdown {
-    margin: 10px;
-}
-
-.dropdown-menu {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-#table i {
-    font-size: 3em; 
-    color: #007bff;
-    margin-right: 10px;
-    align-items: center; 
-}
-#table {
-    text-align: center;
+/* nav bar */
+header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-
-.tablinks {
-    background-color: #007bff; 
-    color: #fff;
-    border: 1px solid #007bff;
-    cursor: pointer;
     padding: 10px 20px;
-    border-radius: 5px;
-    margin: 0 2px;
-    transition: background-color 0.3s, color 0.3s; 
+    background-color: black;
 }
 
-.tablinks:hover {
-    background-color: #0056b3;
+/* logo */
+.logo-main img {
+    height: 50px;
 }
 
-.tabcontent {
+/* navigation */
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* navigation dropdown */
+.dropdown {
     display: none;
-    padding: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    border: 10px;
+    cursor: pointer;
+    animation: fadeIn 0.5s ease; /* animation when appear */
 }
 
-canvas {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 1px solid #dee2e6;
+.dropdown li {
+    margin: 5px 0;
 }
 
-h2 {
-    color: #333;
+.dropdown li a {
+    color: white;
 }
 
-.last-price {
-    color: #333;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
+nav ul li:hover .dropdown {
+    display: block;
 }
+
+/* animation of the navigation abr dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

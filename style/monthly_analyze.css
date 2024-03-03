@@ -1,0 +1,28 @@
+/* tables design */
+.table-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%; 
+    margin-left: 20px;
+}
+
+table { 
+    border-collapse: collapse;
+    width: 45%; 
+}
+
+table, th, td {
+    border: 1px solid violet; 
+    border-radius: 30px;
+    padding: 10px; 
+}
+
+.dropdown-pairs {
+    align-items: center;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 10px;
+    animation: fadeIn 0.5s ease; /* animation when appear */
+
+}
