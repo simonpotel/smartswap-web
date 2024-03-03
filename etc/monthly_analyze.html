@@ -31,14 +31,20 @@
         <select id="currencyDropdown" onchange="loadGraph(this.value)">
             <option value="qs_matic_usdt">QS_MATIC/USDT</option>
             <option value="qs_weth_usdt">QS_WETH/USDT</option>
+            <option value="qs_link_weth_usdt">QS_LINK/WETH/USDT</option>
         </select>
     </div>
     
-
-    <div id="main" class="rounded">
-        <div class="table-container">
-            <div id="trades" class="rounded"></div>
-            <div id="positions" class="rounded"></div>
+    <div id="main">
+        <div class="table-container rounded">
+            <div id="positions" class="table-content">
+                <h2>Positions</h2>
+                <!-- content of positions updated by JS code -->
+            </div>
+            <div id="trades" class="table-content">
+                <h2>Trades</h2>
+                <!-- content of trades updated by JS code -->
+            </div>
         </div>
         <canvas id="monthlyChart" width="800" height="400"></canvas>
     </div>

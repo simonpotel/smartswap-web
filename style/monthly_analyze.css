@@ -1,48 +1,75 @@
-/* responsive */
+/* Responsive */
 @media only screen and (max-width: 768px) {
     .table-container {
-        flex-direction: column; 
-        overflow-x: auto; 
+        flex-direction: column;
+        align-items: center;
+        overflow-x: auto;
     }
-    table {
-        width: 100%; 
-    }
-    #main {
-        width: 100%; 
-    }
-    #monthlyChart {
-        width: 100%; 
-        height: auto; 
-        display: block; 
+    .table-content {
+        width: 100%;
+        overflow: auto;
     }
 }
 
-/* tables design */
+/* Tables design */
+#positions,
+#trades {
+    text-align: center; 
+    margin-bottom: 10px; 
+}
+
 .table-container {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 20px;
-    width: 100%;
-    margin-left: 20px;
+    width: 100%; 
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.table-content {
+    width: calc(50% - 5px);
+    margin-right: 10px; 
+    overflow: auto; 
+    background-color: #333; 
+    border-radius: 10px;
 }
 
 table {
     border-collapse: collapse;
-    width: 45%;
+    width: 100%;
+    font-size: 12px;
+    white-space: nowrap;
 }
 
-table,
 th,
 td {
-    border: 1px solid violet;
-    border-radius: 30px;
-    padding: 10px;
+    border: 1px solid transparent;
+    padding: 3px;
+    color: #fff;
+}
+
+th {
+    background-color: #555;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+td {
+    background-color: #666;
+}
+
+td.price {
+    position: relative;
+    text-align: center;
 }
 
 .dropdown-pairs {
     align-items: center;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 14px;
     border: 10px;
-    animation: fadeIn 0.5s ease; /* animation when appear */
+    animation: fadeIn 0.5s ease;
 }

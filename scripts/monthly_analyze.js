@@ -46,16 +46,16 @@ async function setCurrency(currency) {
         // create the graphic
         const ctx = document.getElementById('monthlyChart').getContext('2d');
         if (window.monthlyChart && window.monthlyChart instanceof Chart) {
-            window.monthlyChart.destroy(); // destroy the old graphic if there is one
+            window.monthlyChart.destroy();
         }
         window.monthlyChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: labels,
+                labels: labels.map(date => formatDate(new Date(date))),
                 datasets: [{
                     label: 'Prix',
                     data: prices,
-                    borderColor: 'rgba(255, 255, 255, 1)', // white color for the line (due to black background)
+                    borderColor: 'rgba(255, 255, 255, 1)',
                     backgroundColor: colors 
                 }]
             },
@@ -80,17 +80,24 @@ async function setCurrency(currency) {
                             labelString: 'Prix'
                         }
                     }]
-                }                        
+                }
             }
         });
-
 
     } catch (error) {
         console.error('Une erreur s\'est produite lors de la récupération des données:', error);
     }
 }
 
-// useless function to remove later
+function formatDate(date) {
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+}
+
 function loadGraph(currency) {
     setCurrency(currency);
 }

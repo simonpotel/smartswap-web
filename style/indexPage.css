@@ -44,3 +44,31 @@
         font-size: 16px;
     }
 }
+
+/* dont show the items at load page, they will be loaded in ../scripts/index.js */
+#main-content h1,
+#main-content p,
+#main-content button {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+}
+
+/* title */
+#main-content h1.fade-in {
+    opacity: 1;
+}
+
+/* description */
+#main-content p.fade-in {
+    opacity: 1;
+}
+
+/* button */
+#main-content button.fade-in {
+    opacity: 1;
+}
+
+/* add a shadow in the text to make a "glow effect" */
+#main-content h1.glow {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+}
