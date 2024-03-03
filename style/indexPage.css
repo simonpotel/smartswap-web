@@ -1,6 +1,6 @@
 /* title */
 #main-content h1 {
-    font-size: 36px;
+    font-size: 40px;
     text-align: center;
     color: rgb(255, 255, 255);
 }
@@ -16,10 +16,10 @@
 /* button */
 #main-content button {
     display: block;
-    margin-top: 20px; 
+    margin: 0 auto 20px auto; /* changed margin for centering */
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #8a2be2; 
+    background-color: #8a2be2;
     color: white;
     border: none;
     border-radius: 5px;
@@ -28,6 +28,19 @@
 
 /* button hover */
 #main-content button:hover {
-    background-color: #9400d3; 
+    background-color: #9400d3;
 }
 
+/* responsive */
+@media screen and (max-width: 768px) {
+    #main-content h1 {
+        font-size: 32px;
+    }
+    #main-content p {
+        font-size: 16px;
+    }
+    #main-content button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}

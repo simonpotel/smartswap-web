@@ -1,8 +1,8 @@
 /* page content */
 body {
-    background-color: black; 
-    color: white; 
-    font-size: 20px; 
+    background-color: black;
+    color: white;
+    font-size: 18px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Police macOS */
 }
@@ -16,15 +16,32 @@ header {
     background-color: black;
 }
 
+/* gradient background */
+body,
+header {
+    background: linear-gradient(to right, #000000, #2a153e); /* blue to black gradient */
+}
+
 /* logo */
-.logo-main img {
+.logo-main {
+    width: 50px;
     height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.logo-main img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* navigation */
 nav ul {
     list-style-type: none;
     display: flex;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 
 nav ul li {
@@ -76,4 +93,19 @@ nav ul li:hover .dropdown {
     }
 }
 
+/* responsive */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center; 
+    }
 
+    nav ul {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0; 
+    }
+}
