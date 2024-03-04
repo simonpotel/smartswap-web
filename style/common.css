@@ -48,7 +48,8 @@ nav ul {
 }
 
 nav ul li {
-    margin-right: 20px;
+    /* Supprimez margin-right: 20px; si vous le jugez nécessaire */
+    position: relative;
 }
 
 /*
@@ -65,13 +66,18 @@ nav ul li a {
 
 /* navigation dropdown */
 .dropdown {
+    position: absolute;
+    top: 100%;
     display: none;
     border-radius: 5px;
     padding: 10px;
     font-size: 18px;
     border: 10px;
     cursor: pointer;
-    animation: fadeIn 0.5s ease; /* animation when appear */
+    animation: fadeIn 0.5s ease;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    width: auto; 
+    height: auto;
 }
 
 .dropdown li {
