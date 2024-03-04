@@ -1,4 +1,4 @@
-// get the data from the api python
+// get the data from the api php
 async function fetchData(currency) {
     const response = await fetch(`http://127.0.0.1:5000/monthly_analyze/${currency}`);
     return await response.json();
