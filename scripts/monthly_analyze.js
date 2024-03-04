@@ -1,14 +1,13 @@
 // get the data from the api python
-async function fetchData(url) {
-    const response = await fetch(url);
-    console.log(url)
+async function fetchData(currency) {
+    const response = await fetch(`http://127.0.0.1:5000/monthly_analyze/${currency}`);
     return await response.json();
 }
 
 // update the graphic with the data selected (currency)
 async function setCurrency(currency) {
     try {
-        const data = await fetchData(`http://127.0.0.1:5000/monthly_analyze/${currency}`);
+        const data = await fetchData(currency);
         console.log(data)
         const labels = data.data.map(entry => new Date(entry[0]));
         const prices = data.data.map(entry => entry[1]);
