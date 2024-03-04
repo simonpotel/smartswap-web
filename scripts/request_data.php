@@ -6,16 +6,10 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-// get currency from the url
 $request = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 $currency = $request[count($request) - 1];
 
-// get response
-$response = [
-    'currency' => $currency,
-    'data' => [ /* data here */ ],
-];
-
-// send back json
-echo json_encode($response);
-
+$url = "http://127.0.0.1:5000/monthly_analyze/{$currency}";
+$data = file_get_contents($url);
+$data = json_decode($data, true);
+echo json_encode($data);
