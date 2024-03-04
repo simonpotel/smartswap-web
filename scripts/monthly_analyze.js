@@ -1,6 +1,7 @@
 // get the data from the api python
 async function fetchData(url) {
     const response = await fetch(url);
+    console.log(url)
     return await response.json();
 }
 
