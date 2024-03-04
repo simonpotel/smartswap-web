@@ -51,9 +51,11 @@ nav ul li {
     margin-right: 20px;
 }
 
+/*
 nav ul li:last-child {
     margin-right: 0;
 }
+*/
 
 nav ul li a {
     color: white;
@@ -73,7 +75,7 @@ nav ul li a {
 }
 
 .dropdown li {
-    margin: 5px 0;
+    margin: 5px 0 5px 0;
 }
 
 .dropdown li a {
