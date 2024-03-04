@@ -1,11 +1,9 @@
-// get the data from the api php
 async function fetchData(currency) {
     const response = await fetch(`../scripts/request_data.php/${currency}`);
     const data = await response.json();
     return data;
 }
 
-// update the graphic with the data selected (currency)
 async function setCurrency(currency) {
     try {
         const data = await fetchData(currency);
@@ -16,11 +14,10 @@ async function setCurrency(currency) {
         const positions = data.positions;
         const trades = data.trades;
 
-        // positions widget
         const positionsElement = document.getElementById('positions');
         positionsElement.innerHTML = '<h2>Positions</h2>';
         const positionsTable = document.createElement('table');
-        positionsTable.classList.add('table');
+        positionsTable.classList.add('table', 'table-responsive');
         positionsTable.innerHTML = '<tr><th>Date d\'achat</th><th>Prix d\'achat</th></tr>';
         for (const key in positions) {
             if (positions.hasOwnProperty(key)) {
@@ -32,36 +29,75 @@ async function setCurrency(currency) {
         }
         positionsElement.appendChild(positionsTable);
 
-        // trade widget
         const tradesElement = document.getElementById('trades');
         tradesElement.innerHTML = '<h2>Trades</h2>';
         const tradesTable = document.createElement('table');
-        tradesTable.classList.add('table');
-        tradesTable.innerHTML = '<tr><th>Date d\'achat</th><th>Prix d\'achat</th><th>Date de vente</th><th>Prix de vente</th></tr>';
+        tradesTable.classList.add('table', 'table-responsive');
+        tradesTable.innerHTML = '<tr><th>Rapport</th><th>Date d\'achat</th><th>Prix d\'achat</th><th>Date de vente</th><th>Prix de vente</th></tr>';
         trades.forEach(trade => {
+            const rapport = trade.sell.sell_price / trade.buy.buy_price;
+            const color = rapport > 1 ? 'green' : (rapport === 1 ? 'blue' : 'red');
+            const rapportCell = document.createElement('td');
+            rapportCell.innerHTML = rapport.toFixed(2);
+            rapportCell.style.color = 'white';
+            rapportCell.style.backgroundColor = color;
+            rapportCell.style.borderRadius = '5px';
+            rapportCell.style.padding = '5px';
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${trade.buy.buy_date}</td><td>${trade.buy.buy_price}</td><td>${trade.sell.sell_date}</td><td>${trade.sell.sell_price}</td>`;
+            row.appendChild(rapportCell);
+            row.innerHTML += `<td>${trade.buy.buy_date}</td><td>${trade.buy.buy_price}</td><td>${trade.sell.sell_date}</td><td>${trade.sell.sell_price}</td>`;
             tradesTable.appendChild(row);
         });
         tradesElement.appendChild(tradesTable);
 
-        // create the graphic
         const ctx = document.getElementById('monthlyChart').getContext('2d');
         if (window.monthlyChart && window.monthlyChart instanceof Chart) {
             window.monthlyChart.destroy();
         }
+
+        const initialData = {
+            labels: labels.map(date => formatDate(new Date(date))),
+            datasets: [{
+                label: 'Prix',
+                data: prices,
+                borderColor: 'rgba(255, 255, 255, 1)',
+                backgroundColor: colors,
+                pointRadius: 5
+            }]
+        };
+
         window.monthlyChart = new Chart(ctx, {
             type: 'line',
-            data: {
-                labels: labels.map(date => formatDate(new Date(date))),
-                datasets: [{
-                    label: 'Prix',
-                    data: prices,
-                    borderColor: 'rgba(255, 255, 255, 1)',
-                    backgroundColor: colors 
-                }]
-            },
+            data: initialData,
             options: {
+                animation: {
+                    duration: 1000,
+                    easing: 'linear'
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            fontColor: 'white'
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleFontColor: '#fff',
+                        bodyFontColor: '#fff',
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                if (tooltipItem && tooltipItem.yLabel !== undefined) {
+                                    return 'Prix: ' + tooltipItem.yLabel.toFixed(2);
+                                } else {
+                                    return '';
+                                }
+                            }
+                        }
+                    }
+                },
                 scales: {
                     xAxes: [{
                         type: 'time',
@@ -86,6 +122,24 @@ async function setCurrency(currency) {
             }
         });
 
+        const updateChartData = () => {
+            window.monthlyChart.config.data.datasets[0].data = prices;
+            window.monthlyChart.update();
+        };
+
+        const addData = () => {
+            for (let i = 0; i < prices.length; i++) {
+                (function(index) {
+                    setTimeout(() => {
+                        window.monthlyChart.data.datasets[0].data.push(prices[index]);
+                        window.monthlyChart.update();
+                    }, index * 20);
+                })(i);
+            }
+        };
+
+        setTimeout(addData, 200);
+
     } catch (error) {
         console.error('Une erreur s\'est produite lors de la récupération des données:', error);
     }
@@ -103,3 +157,5 @@ function formatDate(date) {
 function loadGraph(currency) {
     setCurrency(currency);
 }
+
+loadGraph('qs_matic_usdt'); // charge default graphic on start
