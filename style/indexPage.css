@@ -82,10 +82,29 @@
     border-radius: 10px;
     padding: 20px;
     margin-top: 50px;
-  }
-  
+}
+
 #graph {
     width: 300px;
     height: 150px;
 }
-  
+
+@media screen and (max-width: 768px) {
+    #main-content {
+        text-align: center; /* Centrer le contenu principal */
+    }
+
+    #graph-container {
+        display: block;
+        margin-top: 30px; /* Marge supérieure automatique */
+        margin-bottom: 20px; /* Ajout d'une marge en bas pour garder de l'espace */
+        width: 80%; /* Largeur ajustée pour les appareils mobiles */
+        max-width: 300px; /* Largeur maximale du conteneur */
+        height: auto; /* Hauteur automatique pour maintenir le rapport d'aspect */
+    }
+
+    #graph {
+        width: 100%; /* Utilisation de la largeur maximale disponible */
+        height: auto; /* Hauteur automatique pour maintenir le rapport d'aspect */
+    }
+}
