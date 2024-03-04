@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
       plugins: {
         legend: {
           display: false // dont show the legend
+        },
+        tooltip: {
+          enabled: false // disable tooltip
         }
       },
       scales: {
