@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="../style/common.css">
+        <link rel="stylesheet" href="../style/loginPage.css">
+        <link rel="icon" href="../files/logo.jpeg" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <div class="logo-main">
+                <img src="../files/logo.jpeg" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li>
+                        <a>Algos Data</a>
+                        <ul class="dropdown">
+                            <li><a href="../etc/monthly_analyze.html">Monthly Analyze</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../etc/loginPage.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="wrapper">
+            <div class="title">
+                Smartswap
+            </div>
+            <form method="post" action="../src/checkIDs.php">
+                <div class="field">
+                    <input type="text" required type="text" id="username" name="username">
+                    <label for="username">Username</label>
+                </div>
+                <div class="field">
+                    <input type="password" required type="password" id="password" name="password">
+                    <label for="password">Password</label>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
+        <script src="../scripts/common.js"></script>
+    </body>
+</html>

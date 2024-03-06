@@ -1,5 +1,5 @@
 <?php
-$config_json = file_get_contents('db_config.json');
+$config_json = file_get_contents(__DIR__ . '/../db_config.json');
 $config_array = json_decode($config_json, true);
 
 if ($config_array === null) {
