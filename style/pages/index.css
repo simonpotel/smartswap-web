@@ -1,0 +1,66 @@
+/* Title */
+#main-content h1 {
+    font-size: 40px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Description */
+#main-content p {
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Button */
+#main-content button {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Button hover */
+#main-content button:hover {
+    background-color: #9400d3;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    #main-content h1 {
+        font-size: 32px;
+    }
+    #main-content p {
+        font-size: 16px;
+    }
+    #main-content button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Title fade-in */
+#main-content h1.fade-in,
+#main-content p.fade-in,
+#main-content button.fade-in {
+    opacity: 1;
+}

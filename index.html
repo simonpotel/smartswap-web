@@ -1,53 +1,25 @@
 <!DOCTYPE html>
-<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smartswap</title>
+    <title>Smartswap Homepage</title>
+
     <link rel="stylesheet" type="text/css" href="style/common.css">
-    <link rel="stylesheet" type="text/css" href="style/indexPage.css">
-    <link rel="icon" href="../files/logo.jpeg" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style/pages/index.css">
+    <link rel="icon" href="files/logo.jpeg" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <div class="logo-main">
-            <img src="files/logo.jpeg" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a class="dropdown-toggle">Algos Data <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown">
-                        <li><a href="etc/monthly_analyze.html">Monthly Analyze</a></li>
-                    </ul>
-                </li>                
-                <li><a href="etc/loginPage.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <div id="header-footer-container"></div>
     <div id="main-content" class="rounded">
         <h1 class="glow">Your profits with control and security</h1>
-        <p 
-            style="text-align: center; color: gray;">
+        <p style="text-align: center; color: gray;">
             An interface for cryptocurrency transactions. Manual trading by users or with a bot that uses algos data. 
         </p>
-        <button class="glow"
-            style="display: block; margin: 0 auto;" 
-            onclick="window.location.href='etc/monthly_analyze.html';">
+        <button class="glow" style="display: block; margin: 0 auto;" onclick="window.location.href='html/pages/monthly_analyze.html';">
             Let's start now
         </button>
-
     </div>
 
-    <div id="graph-container">
-        <canvas id="graph"></canvas>
-    </div>
+    <script src="scripts/pages/index.js"></script>
+    <script src="scripts/common/headerFooter.js"></script>
 
-    <script src="scripts/common.js"></script>
-    <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ header {
     margin-right: 100px;
     margin-left: 100px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 /* gradient background */
@@ -47,12 +48,6 @@ nav ul {
 nav ul li {
     position: relative;
 }
-
-/*
-nav ul li:last-child {
-    margin-right: 0;
-}
-*/
 
 nav ul li a {
     color: white;
@@ -130,7 +125,6 @@ nav ul li:hover .dropdown {
     .logo-main img {
         width: 50px; 
         height: auto; 
-        cursor: pointer; 
     }
 }
 
