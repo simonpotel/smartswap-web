@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (logo && navLinks) {
         logo.addEventListener('click', function () {
-            window.location.href = '../../index.html'; // Toujours rediriger vers la page d'accueil
+            window.location.href = '../../index.html'; 
         });
 
-        // Ajoutez un événement de clic à l'élément .logo-main pour masquer ou afficher les liens de navigation
         document.querySelector('.logo-main').addEventListener('click', function () {
             if (window.innerWidth <= 768) {
                 if (navLinks.style.display === 'block') {
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     navLinks.style.display = 'block';
                 }
             } else {
-                window.location.href = '../../index.html'; // Toujours rediriger vers la page d'accueil
+                window.location.href = '../../index.html'; 
             }
         });
     } else {

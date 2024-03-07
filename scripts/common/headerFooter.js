@@ -1,3 +1,8 @@
+// this file is used in all pages of the website to load the header from:
+// html/common/header.html and style/common.css
+
+// asynchronous load of the header to not get disturb with the others pages
+
 window.addEventListener('DOMContentLoaded', function() {
     loadHeaderFooter();
 });
