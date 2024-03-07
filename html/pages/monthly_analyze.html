@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<head>
-    <title>Smartswap Trading Algos</title>
+    <head>
+        <title>Smartswap Trading Algos</title>
 
-    <link rel="stylesheet" type="text/css" href="../../style/common.css">
-    <link rel="icon" href="../../files/logo.jpeg" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="../../style/pages/monthly_analyze.css">
+        <link rel="stylesheet" type="text/css" href="../../style/common.css">
+        <link rel="icon" href="../../files/logo.jpeg" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="../../style/pages/monthly_analyze.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body onload="loadGraph('qs_matic_usdt')">
-    <div id="header-footer-container"></div> <!-- Ajout de cet élément -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body onload="loadGraph('qs_matic_usdt')">
+        <div id="header-footer-container"></div> 
 
-    <div class="dropdown-pairs">
-        <select id="currencyDropdown" onchange="loadGraph(this.value)">
-            <option value="qs_matic_usdt">QS_MATIC/USDT</option>
-            <option value="qs_weth_usdt">QS_WETH/USDT</option>
-            <option value="qs_link_weth_usdt">QS_LINK/WETH/USDT</option>
-        </select>
-    </div>
-    
-    <canvas id="monthlyChart"></canvas>
-
-    <div class="table-container rounded">
-        <div id="positions" class="table-content">
-            <h2>Positions</h2>
-            <!-- content of positions updated by JS code -->
+        <div class="dropdown-pairs">
+            <select id="currencyDropdown" onchange="loadGraph(this.value)">
+                <option value="qs_matic_usdt">QS_MATIC/USDT</option>
+                <option value="qs_weth_usdt">QS_WETH/USDT</option>
+                <option value="qs_link_weth_usdt">QS_LINK/WETH/USDT</option>
+            </select>
         </div>
-        <div id="trades" class="table-content">
-            <h2>Trades</h2>
-            <!-- content of trades updated by JS code -->
+        
+        <canvas id="monthlyChart"></canvas>
+
+        <div class="table-container rounded">
+            <div id="positions" class="table-content">
+                <h2>Positions</h2>
+                <!-- content of positions updated by JS code -->
+            </div>
+            <div id="trades" class="table-content">
+                <h2>Trades</h2>
+                <!-- content of trades updated by JS code -->
+            </div>
         </div>
-    </div>
-    
-    <script src="../../scripts/pages/monthly_analyze.js"></script>
-    <script src="../../scripts/common/headerFooter.js"></script>
-</body>
+        
+        <script src="../../scripts/pages/monthly_analyze.js"></script>
+        <script src="../../scripts/common/headerFooter.js"></script>
+    </body>
 </html>

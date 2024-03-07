@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 */
-header("Location: ../etc/testPage.html");
+header("Location: ../../html/pages/error.html");
 exit();
 } else {
 
