@@ -19,9 +19,7 @@
 
 /* illu image (on the left) */
 .illu-container img {
-  width: 100%;
-  margin-left: -3px;
-  margin-top: 30px;
+  margin-bottom: -5px;
 }
 
 /* smartswap logo (on the right) */
