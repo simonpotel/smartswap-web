@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smartswap Login</title>
     <link rel="stylesheet" href="../../style/common.css">
     <link rel="stylesheet" href="../../style/pages/login.css">
@@ -12,30 +9,28 @@
 <body>
     <div id="header-footer-container"></div>
     <div class="wrapper animate__animated animate__fadeIn">
-        <form method="post" action="../../requests/checkIDs.php">
-            <div class="login-container">
-                <div class="illu-container">
-                    <img src="../../files/illu-login.png" alt="Login Illustration">
+        <div class="login-container">
+            <div class="illu-container">
+                <img src="../../files/illu-login.png" alt="Login Illustration">
+            </div>
+            <div class="input-container">
+                <div class="logo-container">
+                    <img src="../../files/logo.jpeg" alt="Logo">
                 </div>
-                <div class="input-container">
-                    <div class="logo-container">
-                        <img src="../../files/logo.jpeg" alt="Logo">
-                    </div>
-                    <div class="field">
-                        <input type="text" required id="login" name="login" placeholder="Login">
-                    </div>
-                    <div class="field">
-                        <input type="password" required id="password" name="password" placeholder="Password">
-                    </div>
-                    <div class="button-container">
-                        <input type="submit" value="Let me in" id="loginBtn">
-                    </div>
+                <div class="field">
+                    <input type="text" required id="login" name="login" placeholder="Login">
+                </div>
+                <div class="field">
+                    <input type="password" required id="password" name="password" placeholder="Password">
+                </div>
+                <div class="button-container">
+                    <input type="submit" value="Let me in" id="loginBtn">
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <script src="../../scripts/common/headerFooter.js"></script>
-    <!--<script src="../../scripts/pages/login.js"></script> -->
+    <script src="../../scripts/pages/login.js"></script>
 </body>
 </html>
