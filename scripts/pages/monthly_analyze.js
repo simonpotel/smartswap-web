@@ -1,5 +1,5 @@
 async function fetchData(currency) {
-    const response = await fetch(`../../scripts/pages/request_data.php/${currency}`);
+    const response = await fetch(`../../requests/request_data.php/${currency}`);
     const data = await response.json();
     return data;
 }
